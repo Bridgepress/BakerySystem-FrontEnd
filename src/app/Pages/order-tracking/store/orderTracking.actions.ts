@@ -14,7 +14,7 @@ export class AddOrder implements Action{
 
 export class GetOrders implements Action{
   readonly type = GET_ORDERS;
-  constructor(public payload: Order) {}
+  constructor() {}
 }
 
 export class UpdateOrder implements Action{

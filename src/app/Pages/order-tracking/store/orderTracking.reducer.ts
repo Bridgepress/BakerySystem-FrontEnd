@@ -27,12 +27,6 @@ export function orderTrackingReducer(state: State = initialState, action: OrderT
             ...state,
             orders: [...state.orders]
         };
-    // case OrderTrackingActions.GET_ORDERS_SUCCESS:
-    //     return{
-    //         ...state,
-    //         orders: [...state.orders, ...(action as OrderTrackingActions.GetOrdersSuccess).payload]
-    //     };
-
     case OrderTrackingActions.GET_ORDERS_SUCCESS: 
     return {
         ...state,
@@ -43,16 +37,16 @@ export function orderTrackingReducer(state: State = initialState, action: OrderT
             ...state,
             orders: [...state.orders]
         };
-    // case OrderTrackingActions.UPDATE_ORDER: {
-    //     const index = (action as OrderTrackingActions.UpdateOrder).payload.index;
-    //     const updatedOrder = (action as OrderTrackingActions.UpdateOrder).payload.order;
-    //     const updatedOrders = [...state.orders];
-    //     updatedOrders[index] = updatedOrder;
-    //     return {
-    //         ...state,
-    //         orders: updatedOrders
-    //     };
-    // }
+    case OrderTrackingActions.UPDATE_ORDER: {
+        const updatedOrder = (action as OrderTrackingActions.UpdateOrder).payload;
+        const updatedOrders = state.orders.map(order =>
+            order.id === updatedOrder.id ? updatedOrder : order
+        );
+        return {
+            ...state,
+            orders: updatedOrders
+        };
+    }
     default:
       return state;
   }

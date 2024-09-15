@@ -26,6 +26,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
 import { OrderTrackingEffects } from './Pages/order-tracking/store/orderTracking.effects';
+import { SignalRService } from './Services/signalR.service';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { OrderTrackingEffects } from './Pages/order-tracking/store/orderTracking
     MatIconModule
   ],
   providers: [
+    SignalRService,
     provideClientHydration(),
     provideAnimationsAsync()
   ],

@@ -36,5 +36,19 @@ export class OrderTrackingEffects {
         { dispatch: false }
     );
 
+    updateOrder = createEffect(() =>
+        this.actions$.pipe(
+          ofType(OrderTrackingActions.UPDATE_ORDER),
+          switchMap((action: OrderTrackingActions.UpdateOrder) => {
+            return this.http.put<Order>(`${environment(apiEnvKey)}/api/Order/UpdateOrder`, action.payload)
+              .pipe(
+                tap(updatedOrder => console.log('Order updated', updatedOrder)),
+                catchError(error => of(new OrderTrackingActions.GetOrdersFail(error)))
+              );
+          })
+        ),
+        { dispatch: false }
+      );
+
     constructor(private actions$: Actions, private http: HttpClient) {}
 }

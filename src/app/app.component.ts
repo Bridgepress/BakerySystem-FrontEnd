@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SignalRService } from './Services/signalR.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  constructor() { }
   title = 'BakerySystem-FrontEnd';
 }

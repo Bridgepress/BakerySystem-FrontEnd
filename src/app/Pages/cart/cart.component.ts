@@ -5,6 +5,7 @@ import { Observable, take } from 'rxjs';
 import { Product } from '../home/product.model';
 import * as OrderTrackerActions from '../order-tracking/store/orderTracking.actions'
 import { Order } from '../order-tracking/order.model';
+import * as CartActions from './store/cart.actions';
 
 @Component({
   selector: 'app-cart',
@@ -33,10 +34,12 @@ export class CartComponent {
   createOrder() {
     this.products$?.pipe(take(1)).subscribe(cartState => {
       let newOrder = new Order(
-        cartState.products,
-        'Pending'        
+        cartState.products, 
+        'Pending'
       );
       this.store.dispatch(new OrderTrackerActions.AddOrder(newOrder));
+      this.store.dispatch(new CartActions.ClearCart());
+      this.allSum = 0;
     });
   }
   

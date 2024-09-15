@@ -1,9 +1,29 @@
-<!-- <div class="container">
+<div class="container">
     <div>
-        <ul>
-            <li *ngFor="let order of orders">
-                <a [routerLink]="['/order', order.id]">{{order.id}}</a>
-            </li>
-        </ul>
+      <ul>
+        <li *ngFor="let order of (orders$ | async)?.orders; let i = index">
+          <div class="columns">
+            <div class="scrollable-content column">
+              <app-produc-detail 
+                *ngFor="let product of order.products"
+                [product]="product" 
+                [index]="i">
+              </app-produc-detail>
+            </div>
+            <div class="column">
+              <h3>Total: {{order.total}}</h3>
+              <mat-form-field appearance="fill">
+                <mat-label>Status</mat-label>
+                <mat-select [(value)]="order.status" (selectionChange)="onStatusChange(order, $event.value)">
+                  <mat-option *ngFor="let status of statuses" [value]="status.value">
+                    {{status.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>   
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
-</div> -->
+  </div>
+  
