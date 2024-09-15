@@ -1,0 +1,22 @@
+.example-card {
+    width: 400px;
+    margin: 10px;
+    transition: transform 0.3s ease-in-out;
+    cursor: default;
+  }
+
+  .example-card:hover {
+    transform: scale(1.05); 
+    cursor: pointer;
+}
+
+  .example-card img {
+    margin: 5px;
+    border-radius: 20px;
+  }
+
+  .price{
+    color: green;
+    text-decoration: underline;
+  }
+  

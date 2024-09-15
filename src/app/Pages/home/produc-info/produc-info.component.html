@@ -1,0 +1,20 @@
+<mat-card class="example-card" appearance="outlined" *ngIf="product!=null">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{product?.title}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src={{product?.image}}>
+    <mat-card-content>
+      <p>
+        {{product?.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="example-button-container" (click)="addToCart()">
+            <a mat-fab extended routerLink=".">
+              <mat-icon>favorite</mat-icon>
+              Add
+            </a>
+        </div>
+    </mat-card-actions>
+  </mat-card>

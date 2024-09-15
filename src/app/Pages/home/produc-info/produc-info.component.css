@@ -1,0 +1,16 @@
+
+mat-card img{
+    width: 400px;
+    height: 300px;
+}
+
+
+mat-card p{
+    font-size: 20px;
+    font-weight: bold;
+    max-height: 150px;
+    max-width: 400px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #5c67f2 #e0e0e0;
+}

@@ -1,0 +1,45 @@
+.columns {
+    height: calc(100vh - 300px); 
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .column {
+    display: inline-block;
+    margin: 50px;
+  }
+  
+  .container {
+    margin-left: 20px;
+    padding-top: 90px;
+    margin-right: 20px;
+    height: calc(100vh - 120px); 
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: hidden; 
+    overflow-y: auto; 
+  }
+  
+  .scrollable-content {
+    max-height: calc(100vh - 350px); 
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #5c67f2 #e0e0e0;
+  }
+  
+  .scrollable-content::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .scrollable-content::-webkit-scrollbar-track {
+    background: #e0e0e0;
+  }
+  
+  .scrollable-content::-webkit-scrollbar-thumb {
+    background-color: #5c67f2;
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+  }
+  

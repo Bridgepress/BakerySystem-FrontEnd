@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="columns">
+          <div class="scrollable-content column">
+            <app-produc-detail 
+                *ngFor="let product of (products$ | async)?.products; let i = index"
+              [product]="product" 
+              [index]="i" >
+            </app-produc-detail>
+          </div>
+          <div class="column">
+            <h3>Total: {{allSum}}</h3>
+            <div class="example-button-container" (click)="createOrder()">
+                <a mat-fab extended>
+                  Order
+                </a>
+            </div>
+          </div>
+      </div>
+</div>
